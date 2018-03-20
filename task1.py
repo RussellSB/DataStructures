@@ -16,8 +16,8 @@ class Pair:
 #recursive method for sorting pairs by products
 def sortByProduct(objList):
 
-    #base case for when segment's length is 1
-    if(len(objList))==1:
+    #base case for when segment's length is less than or equal to one
+    if(len(objList)<=1):
         return objList
 
     smaller=[] #initialized for storing the smaller segment of the list
