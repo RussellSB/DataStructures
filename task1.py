@@ -62,17 +62,25 @@ def findProductMatches(rangeList):
             if(y>x): #condition to avoid repeated a*b combinations
                 pairList.append(Pair(x,y))
 
-    print(":)")
+    pairList = sortByProduct(pairList) #sorts by product using quick sort
 
-    for x in pairList:
-        print "u:%d"%x.product
+    #goes through every index in the pairList array
+    for i in range(0,len(pairList)-1):
 
-    print(":)")
+        #Checks if pair at index has a unique product
+        if(pairList[i].product != pairList[i+1].product):
+            i+=1
+        else:
 
-    pairList = sortByProduct(pairList)
+            print("The pair [%d*%d = %d] matches with"%(pairList[i].a, pairList[i].b, pairList[i].product)),
 
-    for x in pairList:
-        print "s:%d"%x.product
+            #traverses through products, displaying the matches until there are no more
+            while(pairList[i].product == pairList[i+1].product):
+                print("[%d*%d = %d] and"%(pairList[i+1].a, pairList[i+1].b, pairList[i+1].product)),
+                i+=1
 
-findProductMatches(range(1,1025))
+            print(",") #prints comma indicating end of line
 
+
+print("Matching products from 1 to 1024 are;")
+findProductMatches(range(1, 1025))
