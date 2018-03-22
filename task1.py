@@ -64,23 +64,36 @@ def findProductMatches(rangeList):
 
     pairList = sortByProduct(pairList) #sorts by product using quick sort
 
-    #goes through every index in the pairList array
-    for i in range(0,len(pairList)-1):
+    i = 0 #initialized index to 0
 
-        #Checks if pair at index has a unique product
-        if(pairList[i].product != pairList[i+1].product):
+    #goes through every index in the pairList array
+    while(i<len(pairList)):
+
+        #Accesses this during the last iteration when the last index has no matching products. Avoids OutOfIndex exception, iterates to exit loop
+        if(i==len(pairList)-1):
             i+=1
-        else:
+
+        #If next pair exists and if pair at index has a unique product, skips cause no matches
+        elif(pairList[i+1] and pairList[i].product != pairList[i+1].product):
+            i+=1
+
+        #If next pair exists and if current pair is seen to have at least one match, access while loop
+        elif(pairList[i+1] and pairList[i].product == pairList[i+1].product):
 
             print("The pair [%d*%d = %d] matches with"%(pairList[i].a, pairList[i].b, pairList[i].product)),
 
             #traverses through products, displaying the matches until there are no more
-            while(pairList[i].product == pairList[i+1].product):
+            while(pairList[i+1] and pairList[i].product == pairList[i+1].product):
                 print("[%d*%d = %d] and"%(pairList[i+1].a, pairList[i+1].b, pairList[i+1].product)),
                 i+=1
 
             print(",") #prints comma indicating end of line
 
+        #else statement used for unconsidered scenarios
+        else:
+            print("Error: something wrong has occurred during printing.")
+
+    return 0
 
 print("Matching products from 1 to 1024 are;")
-findProductMatches(range(1, 1025))
+findProductMatches(range(1, 1025)) #or (range(1,26))

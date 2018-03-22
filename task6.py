@@ -2,12 +2,8 @@
 #ID: 0426299(M)
 #Task: 6
 
-import time #used for execution time comparison
-
-#try to find the most efficient way to do this
+#method solving problem using 2 arrays
 def findRepitition(array):
-
-    start_time = time.time()  # starts timer
 
     unique = [] #for storing unique elements
     duplicate = [] #for storing repeated elements
@@ -23,9 +19,6 @@ def findRepitition(array):
             duplicate.append(x)
         if x not in unique: #if no match is found, add to unique
             unique.append(x)
-
-    end_time = time.time()  # ends timer
-    print("Time taken for the method: %.12f"%(end_time-start_time))
 
     #returns repeated numbers
     return duplicate
