@@ -11,6 +11,8 @@ def calcSumFib(n):
 
     for i in range(0,n): #loops for n times
 
+        print(x) #prints current number in the sequence
+
         #print(x)
         sum+=x
 
@@ -21,5 +23,5 @@ def calcSumFib(n):
 
     return sum
 
-n=100
+n=20
 print("Sum of the first %d elements in the Fibonacci sequence is %d"%(n,calcSumFib(n)))
