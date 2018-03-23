@@ -11,7 +11,7 @@ def calcSumFib(n):
 
     for i in range(0,n): #loops for n times
 
-        print(x) #prints current number in the sequence
+        print(x) # prints current number in the sequence
 
         #print(x)
         sum+=x
