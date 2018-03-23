@@ -4,6 +4,8 @@
 
 import random #used for choosing random pivot
 
+#testin' an ed
+
 #class for storing pair's details
 class Pair:
 
