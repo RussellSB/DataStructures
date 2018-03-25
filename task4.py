@@ -27,6 +27,8 @@ class BinarySearchTree:
         else:
             self._insertNode(value, self.root)
 
+
+
     #recursive function called for inserting node after root
     def _insertNode(self, value, currNode):
 
@@ -50,8 +52,9 @@ class BinarySearchTree:
 
         #when the value is equal to its previous
         else:
-            print "Error: Inserted value is already in the Binary Search Tree."
+            print "Error: Inserted value %d is already in the Binary Search Tree therefore it wasn't inserted."%currNode.value
             return -1
+
 
     #prints the tree with all its contained nodes
     def printTree(self):
@@ -68,11 +71,26 @@ class BinarySearchTree:
 
         #base case is when the bottom of the tree is reached (when node==None)
         if currNode!=None:
-            self._printTree(currNode.leftChild)
-            print str(currNode.value)
-            self._printTree(currNode.rightChild)
 
+            self._printTree(currNode.leftChild) #goes to the deepest node on the left
 
+            # prints when left and right child don't exist
+            if(currNode.leftChild==None and currNode.rightChild==None):
+                print("[ %s ] ---> \tLEFT: [%s] \tRIGHT: [%s]" % (currNode.value, currNode.leftChild, currNode.rightChild))
+
+            # prints when left child only doesn't exist
+            elif(currNode.leftChild==None):
+                print("[ %s ] ---> \tLEFT: [%s] \tRIGHT: [ %s ]" % (currNode.value, currNode.leftChild, currNode.rightChild.value))
+
+            # prints when right child only doesn't exist
+            elif(currNode.rightChild==None):
+                print("[ %s ] ---> \tLEFT: [ %s ] \tRIGHT: [%s]" % (currNode.value, currNode.leftChild.value, currNode.rightChild))
+
+            # prints when left and right child do exist
+            else:
+                print("[ %s ] ---> \tLEFT: [ %s ] \tRIGHT: [ %s ]" % (currNode.value, currNode.leftChild.value, currNode.rightChild.value))
+
+            self._printTree(currNode.rightChild) #goes to the node right from the left, then up a level
 
 bst = BinarySearchTree() #initializing instance of class
 
