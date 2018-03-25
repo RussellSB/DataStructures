@@ -2,11 +2,12 @@
 #ID: 0426299(M)
 #Task: 7
 
+#recursive method to finding the max number of the list
 def _findMax(list):
 
     length = len(list) #getting current length of list
 
-    #checks if list is 1 in length
+    #base case to check if list is 1 in length
     if length==1:
         return list[0]
 
@@ -18,5 +19,6 @@ def _findMax(list):
 
     return _findMax(list) #calls method recursively
 
-list = [1,2,3,4,5,60,6,7,80,9,10]
-print("The max number in %s is %d"%(str(list),_findMax(list)))
+list = range(1,1000)
+print("The max number in %s is:"%(str(list)))
+print(_findMax(list))
