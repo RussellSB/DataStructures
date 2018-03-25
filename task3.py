@@ -31,7 +31,7 @@ def isPrime(n):
 #finds all prime numbers less than or equal to n using isPrime()
 def findPrimes1(n):
 
-    start_time=time.time() #starts timer
+    start_time=time.time() #gets time at start
 
     primes = [] #initialized to later store prime numbers
 
@@ -42,9 +42,9 @@ def findPrimes1(n):
         if(isPrime(x)==True):
             primes.append(x)
 
-    end_time = time.time() #ends timer
+    end_time = time.time() #gets time at end
+    print("Total time: %0.5fs"%(end_time-start_time)) #prints executuion time
 
-    print("Total time: %0.5f"%(end_time-start_time)) #prints executuion time
     return primes
 
 
@@ -52,7 +52,7 @@ def findPrimes1(n):
 #finds all prime numbers less than or equal to n using Sieve of Eratosthenes Algorithm
 def findPrimes2(n):
 
-    start_time = time.time() #starts timer
+    start_time = time.time() #gets time at start
 
     primes = [] #initializes list of prime numbers as empty
 
@@ -79,9 +79,9 @@ def findPrimes2(n):
         if sieve[i]:
             primes.append(i)
 
-    end_time = time.time() #ends timer
-
+    end_time = time.time() #gets time at end
     print("Total time: %0.5f" % (end_time - start_time)) #prints executuion time
+
     return primes
 
 n1=101

@@ -73,17 +73,17 @@ def findProductMatches(rangeList):
         if(i==len(pairList)-1):
             i+=1
 
-        #If next pair exists and if pair at index has a unique product, skips cause no matches
-        elif(pairList[i+1] and pairList[i].product != pairList[i+1].product):
+        #If pair at index has a unique product, skips cause no matches
+        elif(pairList[i].product != pairList[i+1].product):
             i+=1
 
-        #If next pair exists and if current pair is seen to have at least one match, access while loop
-        elif(pairList[i+1] and pairList[i].product == pairList[i+1].product):
+        #If current pair is seen to have at least one match, access while loop
+        elif(pairList[i].product == pairList[i+1].product):
 
             print("The pair [%d*%d = %d] matches with"%(pairList[i].a, pairList[i].b, pairList[i].product)),
 
-            #traverses through products, displaying the matches until there are no more
-            while(pairList[i+1] and pairList[i].product == pairList[i+1].product):
+            #traverses through products, displaying the matches until there are no more (stops when at the end)
+            while(i!=len(pairList)-1 and pairList[i].product == pairList[i+1].product):
                 print("[%d*%d = %d] and"%(pairList[i+1].a, pairList[i+1].b, pairList[i+1].product)),
                 i+=1
 
