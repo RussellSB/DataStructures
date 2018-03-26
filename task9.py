@@ -23,5 +23,5 @@ def calcSumFib(n):
 
     return sum
 
-n=20
-print("Sum of the first %d elements in the Fibonacci sequence is %d"%(n,calcSumFib(n)))
+n=40
+print("\nSum of the first %d elements in the Fibonacci sequence is %d"%(n,calcSumFib(n)))
