@@ -1,2 +1,2 @@
 # DataStructures
-Data algorithims problems, solved iteritavely or recursively
+Data structure problems, solved iteritavely and recursively. For more information please refer to the report.
